@@ -32,12 +32,17 @@
             // Get the initial amount from the principal box
             const principal = document.getElementById("principal").value;
 			  console.log(principal);
+			//
+			if (principal < 0) {
+				document.getElementById("result").innerText = "Please enter a non-negative Loan Amount."
+				return;
+			}
             // update rate from the box
             const rate = document.getElementById("rate").value / 100;
 			  console.log(rate);
 			// check that rate input is not negative or over 100%
 			if (rate < 0 || rate > 1) {
-				document.getElementById("result").innerText = "Please enter an interest rate between 0 and 100%";
+				document.getElementById("result").innerText = "Please enter an Interest Rate between 0 and 100%";
 				return;
             }
             // get the years to calculate
@@ -45,7 +50,7 @@
 			  console.log(years);
 			// check that years input not negative and within next century
 			if (years < 0 || years > 100) {
-			    document.getElementById("result").innerText = "Please enter a valid loan term.";
+			    document.getElementById("result").innerText = "Please enter a valid Loan Term.";
 				return;
 			}
             // calculate monthly interest rate
